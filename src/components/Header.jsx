@@ -1,29 +1,26 @@
-import NuevoPresupuesto from "./NuevoPresupuesto"
-import ControlPresupuesto from "./ControlPresupuesto"
+import NuevoPresupuesto from "./NuevoPresupuesto";
+import ControlPresupuesto from "./ControlPresupuesto";
 
-const Header = ({presupuesto, 
-    setPresupuesto, 
-    isValidPresupuesto, 
-    setIsValidPresupuesto
+const Header = ({
+  presupuesto,
+  setPresupuesto,
+  isValidPresupuesto,
+  setIsValidPresupuesto,
 }) => {
   return (
     <header>
-        <h1>Planificador de Presupuesto</h1>
-        {isValidPresupuesto ? (
-          <ControlPresupuesto
-          presupuesto={presupuesto}
-          />
-        ):
+      <h1>Planificador de Presupuesto</h1>
+      {isValidPresupuesto ? (
+        <ControlPresupuesto presupuesto={presupuesto} />
+      ) : (
         <NuevoPresupuesto
-        presupuesto={presupuesto}
-        setPresupuesto={setPresupuesto}
-        setIsValidPresupuesto={setIsValidPresupuesto}
+          presupuesto={presupuesto}
+          setPresupuesto={setPresupuesto}
+          setIsValidPresupuesto={setIsValidPresupuesto}
         />
-        }
- 
+      )}
     </header>
-    
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
