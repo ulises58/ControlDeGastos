@@ -102,6 +102,8 @@ function App() {
 					<main>
 						<Filtros setFiltro={setFiltro} filtro={filtro} />
 						<ListadoGastos
+							filtro={filtro}
+							gastosFiltrados={gastosFiltrados}
 							elimanarGasto={elimanarGasto}
 							setGastoEditar={setGastoEditar}
 							gastos={gastos}
