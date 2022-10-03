@@ -53,7 +53,6 @@ function App() {
 				gasto => gasto.categoria === filtro
 			);
 			setGastosFiltrados(gastosFiltrados);
-			console.log(gastosFiltrados);
 		}
 	}, [filtro]);
 
