@@ -22,6 +22,7 @@ function App() {
 
 	const guardarGasto = gasto => {
 		gasto.id = generarId();
+		gasto.fecha = Date.now();
 		setGastos([...gastos, gasto]);
 		setTimeout(() => {
 			setModal(false);
@@ -38,10 +39,7 @@ function App() {
 			{isValidPresupuesto && (
 				<>
 					<main>
-
-						<ListadoGastos
-							gastos={gastos}
-						/>
+						<ListadoGastos gastos={gastos} />
 					</main>
 
 					<div className='nuevo-gasto'>
