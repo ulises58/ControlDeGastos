@@ -6,7 +6,9 @@ import { ListadoGastos } from './components/ListadoGastos';
 import { generarId } from '../helpers/index';
 
 function App() {
-	const [presupuesto, setPresupuesto] = useState(0);
+	const [presupuesto, setPresupuesto] = useState(
+		Number(localStorage.getItem('presupuesto')) ?? 0
+	);
 	const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
 	const [modal, setModal] = useState(false);
 	const [animarModal, setAnimarModal] = useState(false);
@@ -22,6 +24,16 @@ function App() {
 		}
 	}, [gastoEditar]);
 
+	useEffect(() => {
+		localStorage.setItem('presupuesto', presupuesto ?? 0);
+	}, [presupuesto]);
+
+	useEffect(() => {
+		const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? 0;
+		if (presupuestoLS > 0) {
+			setIsValidPresupuesto(true);
+		}
+	}, []);
 	const handleNuevoGasto = () => {
 		setModal(true);
 		setGastoEditar({});
