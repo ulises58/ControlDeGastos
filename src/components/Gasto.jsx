@@ -20,24 +20,27 @@ const diccionarioIconos = {
 	comida: IconoComida,
 	casa: IconoCasa,
 	gastos: IconoGastos,
-	osio: IconoOsio,
+	ocio: IconoOsio,
 	salud: IconoSalud,
 	suscripciones: IconoSuscripciones,
 };
 
-const leadingActions = () => (
-	<LeadingActions>
-		<SwipeAction onClick={() => console.log('editar')}>editar</SwipeAction>
-	</LeadingActions>
-);
-
-const trailingActions = () => (
-	<TrailingActions>
-		<SwipeAction onClick={() => console.log('eliminar')}>Eliminar</SwipeAction>
-	</TrailingActions>
-);
-const Gasto = ({ gasto }) => {
+const Gasto = ({ gasto, setGastoEditar }) => {
 	const { categoria, nombre, cantidad, id, fecha } = gasto;
+
+	const leadingActions = () => (
+		<LeadingActions>
+			<SwipeAction onClick={() => setGastoEditar(gasto)}>editar</SwipeAction>
+		</LeadingActions>
+	);
+
+	const trailingActions = () => (
+		<TrailingActions>
+			<SwipeAction onClick={() => console.log('eliminar')}>
+				Eliminar
+			</SwipeAction>
+		</TrailingActions>
+	);
 	return (
 		<SwipeableList>
 			<SwipeableListItem
